@@ -1,0 +1,32 @@
+#!/bin/python
+
+import math
+import os
+import random
+import re
+import sys
+
+def plusMinus(arr):
+    zero=float(0)
+    pos=float(0)
+    neg=float(0)
+    for x in range(len(arr)):
+        if(arr[x]==0):
+            zero=zero+1
+        elif(arr[x]>0):
+            pos=pos+1
+        else:
+            neg=neg+1
+    res=["0","0","0"]
+    res[2]=float(zero/len(arr))
+    res[0]=float(pos/len(arr))
+    res[1]=float(neg/len(arr))
+    for x in range(len(res)):
+        print("%.6f"%res[x])
+    
+if __name__ == '__main__':
+    n = int(raw_input())
+
+    arr = map(int, raw_input().rstrip().split())
+
+    plusMinus(arr)
