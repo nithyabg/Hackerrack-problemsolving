@@ -1,0 +1,40 @@
+#!/bin/python
+
+import math
+import os
+import random
+import re
+import sys
+
+def diagonalDifference(arr,n):
+    res=0
+    res1=0
+    y=n-1
+    x=0
+    while x<n:
+        res=res+arr[x][x]
+        res1=res1+arr[y][x]
+        y=y-1
+        x=x+1
+    if(res>=res1):
+        res=res-res1
+    else:
+        res=res1-res
+    return res
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(raw_input().strip())
+
+    arr = []
+
+    for _ in xrange(n):
+        arr.append(map(int, raw_input().rstrip().split()))
+
+    result = diagonalDifference(arr,n)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
